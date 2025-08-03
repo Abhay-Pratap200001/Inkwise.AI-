@@ -11,7 +11,7 @@ function BlogList() {
     <div>
       <div className="flex justify-center gap-4 sm:gap-8 my-10 relative">
         {blogCategories.map((items) => (
-          <div key={items} className="realtive inline-block">
+          <div key={items} className="realtive inline-block mb-3">
             <button
               onClick={() => setMenu(items)}
               className={` relative cursor-pointer text-gray-600 ${
