@@ -10,8 +10,8 @@ function BlogList() {
   return (
     <div>
       <div className="flex justify-center gap-4 sm:gap-8 my-10 relative">
-        {blogCategories.map((items) => (
-          <div key={items} className="realtive inline-block mb-3">
+        {blogCategories.map((items,index) => (
+          <div key={index} className="relative inline-block mb-3">
             <button
               onClick={() => setMenu(items)}
               className={` relative cursor-pointer text-gray-600 ${
@@ -19,7 +19,7 @@ function BlogList() {
               {items}
               {menu === items && (<motion.div 
               layoutId="underline"
-              transition={{ type: "spring", stiffness: 500, damping: 10 }}
+              transition={{ type: "spring", stiffness:500, damping: 10 }}
               className="absolute left-0 right-0 top-0 h-7 -z-1 bg-primary rounded-full">
               </motion.div>)}
             </button>
@@ -28,8 +28,8 @@ function BlogList() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8 mb-24 mx-8 sm:mx-16 xl:mx-40">
-        {blog_data.filter((blog) => (menu === "All" ? true : blog.category === menu)).map((blog, index) => (
-            <BlogCard key={index} blog={{...blog, _id:index}} />
+        {blog_data.filter((blog) => (menu === "All" ? true : blog.category === menu)).map((blog) => (
+          <BlogCard key={blog.id} blog={{...blog, _id: blog.id}} />
           ))}
         {/*sending bllogs according to the needs*/}
       </div>
