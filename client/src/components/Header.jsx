@@ -7,7 +7,7 @@ function Header() {
       <div className="text-center mt-16 mb-8 ">
         <div className="inline-flex items-center justify-center gap-4 px-6 py-1.5 mb-4 border border-primary/40 bg-primary/10 rounded-full text-sm text-primary">
           <p>New: AI feature has integrated</p>
-          <BsStars className=""/>
+          <BsStars/>
         </div>
         <h1 className="text-3xl sm:text-6xl font-semibold sm:leading-16 text-gray-700">Your own <span className="text-primary">blogging</span> <br /> Platform</h1>
         <p className="my-6 sm:my-8 max-w-2xl m-auto max-sm:text-xs text-gray-500">Quickblog is a modern, responsive blogging platform built for creators who want to publish, manage, and share content effortlessly.and AI-assisted writing, it empowers users to focus on what matters most — creating.</p>
