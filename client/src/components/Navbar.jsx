@@ -8,7 +8,7 @@ const navigate = useNavigate()
   return (
     <div className="flex justify-between items-center py-4 mx-8 sm:mx-20 xl:mx-32">
       <img onClick={()=>{navigate('/')}}
-      src="https://cdn-icons-png.flaticon.com/128/10840/10840162.png"
+      src="https://w7.pngwing.com/pngs/130/791/png-transparent-parrot-bird-colored-parrot-flying-ink-color-splash-animals.png"
       alt="logo"
       className="w-10 sm:w-15"/>
       <span className="text-[23px] pr-10 sm:pr-200 text-4xl font-bold mt-2"> Inkwise.AI</span>
