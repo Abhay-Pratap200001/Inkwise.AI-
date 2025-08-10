@@ -3,14 +3,13 @@ import { footer_data } from "../assets/assets";
 
 function Footer() {
   return (
-    <div className="px-6 md:px-16 lg:px-24 xl:px-32 bg-primary/3">
+    <div className="px-6 md:px-16 lg:px-24 xl:px-32 bg-gray-50">
       <div className="flex flex-col md:flex-row item-start justify-between gap-10 py-10 border-b border-gray-500/300 text-gray-500">
         <div>
-
           <img
-            src="https://cdn-icons-png.flaticon.com/128/10840/10840162.png"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSazG5R-v6NEMBde7o7v9X52g9xrEoHFyb8w2U_2FGwTilytOewkD3z40Zqk1I3HlWwco4&usqp=CAU"
             alt="log"
-            className="mb-7 w-10 sm:w-11 inline-block"/>
+            className="mb-7 w-10 sm:w-20 inline-block bg-primary/3" />
           <span className="font-bold text-3xl ">Inkwise.AI</span>
           <p className="max-w-[410px] mt-6">
             cumque molestiae est reiciendis iste optio minima commodi odio iure
