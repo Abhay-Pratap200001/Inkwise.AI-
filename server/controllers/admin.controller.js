@@ -5,33 +5,21 @@ import Blog from "../models/Blog.js";
 import Comment from "../models/Comment.js";
 
 
-//user controller
-export const usersiginup = async (req, res, next) => {
-  const { username, email, password } = req.body;
-  const hashedPassword = bcryptjs.hashSync(password, 10);
-  const newUser = new User({ username, email, password: hashedPassword });
-  try {
-    await newUser.save(); //saving the new user in database
-    res.status(201).json("user Created check you database");
-  } catch (error) {
-    res.json({ success: false, message: error.message });
-  }
-};
 
-export const userLogin = async (req, res, next) => {
-  const { email, password } = req.body;
+//admin controller
+export const adminLogin = async (req, res) =>{
   try {
-    const validUser = await User.findOne({ email });
-    if (!validUser) return next(errorHandler(404, "User not found!"));
-    const validPassword = bcryptjs.compareSync(password, validUser.password);
-    if (!validPassword) return next(errorHandler(401, "Invalid credentials!"));
-    const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);
-    const { password: pass, ...rest } = validUser._doc;
-    res.cookie("access_token", token, { httpOnly: true }).json(rest);
+    const {email, password} = req.body;
+    if (email !== process.env.ADMIN_EMAIL || password !== process.env.ADMIN_PASSWORD) {
+      return res.json({success: false, message: "Invalid Credentials"})
+    }
+    
+    const token = jwt.sign({email}, process.env.JWT_SECRET)
+    res.json({success:true, token})
   } catch (error) {
-    res.json({ success: false, message: error.message });
+    res.json({success:false, message:error.message})
   }
-};
+}
 
 export const userLogout = async (req, res, next) => {
   try {
@@ -41,25 +29,6 @@ export const userLogout = async (req, res, next) => {
     res.json({ success: false, message: error.message });
   }
 };
-
-
-//******************************************************************************* */
-
-//admin controller
-export const adminLogin = async (req, res) =>{
-    try {
-        const {email, password} = req.body;
-        if (email !== process.env.ADMIN_EMAIL || password !== process.env.ADMIN_PASSWORD) {
-         return res.json({success: false, message: "Invalid Credentials"})
-        }
-
-        const token = jwt.sign({email}, process.env.JWT_SECRET)
-        res.json({success:true, token})
-    } catch (error) {
-      res.json({success:false, message:error.message})
-    }
-}
-
 
 //Getting All AdminBlogs
 export const getAllBlogsAdmin = async (req, res) => {
